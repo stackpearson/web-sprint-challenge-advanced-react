@@ -27,20 +27,24 @@ const CheckoutForm = (props) => {
   //   setShowSuccessMessage(true);
   // };
 
-// function cb() {
-//   alert(`${values.firstName}: ${values.email}`);
-//   console.log('cb from CheckoutForm', values.firstName)
-// }
 
-const [values, handleChanges, handleSubmit] = useForm({
+// refactored to use my useForm hook
+
+function cb() {
+  setShowSuccessMessage(true);
+}
+
+const [values, showSuccessMessage, setShowSuccessMessage, handleChanges, handleSubmit] = useForm({
+
   firstName: '',
   lastName: '',
   address: '',
   city: '',
   state: '',
   zip: '',
-}
-// cb
+  showSuccessMessage: '',
+},
+cb
 );
 
   return (
@@ -86,7 +90,7 @@ const [values, handleChanges, handleSubmit] = useForm({
         <button>Checkout</button>
       </form>
 
-      {/* {showSuccessMessage && (
+      {showSuccessMessage  && (
         <div className="success-message" data-testid="successMessage">
           <p>
             You have ordered some plants! Woo-hoo! <span role="img">🎉</span>
@@ -102,7 +106,7 @@ const [values, handleChanges, handleSubmit] = useForm({
             {values.city}, {values.state} {values.zip}
           </p>
         </div>
-      )} */}
+      )}
     </>
   );
 };
