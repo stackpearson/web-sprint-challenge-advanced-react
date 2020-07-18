@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useForm from '../hooks/useForm';
 
+//original stateful logic
 // const initialValue = {
 //   firstName: "",
 //   lastName: "",
@@ -15,6 +16,8 @@ import useForm from '../hooks/useForm';
 // and replace the necessary stateful logic from CheckoutForm with the hook
 
 const CheckoutForm = (props) => {
+
+  //original  local stateful logic  
   // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   // const [values, setValues] = useState(initialValue);
 
@@ -28,8 +31,7 @@ const CheckoutForm = (props) => {
   // };
 
 
-// refactored to use my useForm hook
-
+// refactored logic using my useForm hook
 function cb() {
   setShowSuccessMessage(true);
 }
